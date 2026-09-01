@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Heart, Sparkles, Star } from 'lucide-react';
 
@@ -6,8 +6,8 @@ const icons = [Heart, Sparkles, Star];
 const colors = ['text-rose-gold', 'text-white', 'text-rose-300'];
 
 /**
- * Randomised values are generated after mount rather than during render, so a
- * re-render never reshuffles particles mid-flight.
+ * Randomised values are generated once in a lazy state initialiser instead of
+ * during render, so a re-render never reshuffles particles mid-flight.
  */
 const buildParticles = (count) =>
   Array.from({ length: count }).map(() => ({
@@ -23,11 +23,7 @@ const buildParticles = (count) =>
   }));
 
 const Particles = ({ count = 20 }) => {
-  const [particles, setParticles] = useState([]);
-
-  useEffect(() => {
-    setParticles(buildParticles(count));
-  }, [count]);
+  const [particles] = useState(() => buildParticles(count));
 
   return (
     <>
