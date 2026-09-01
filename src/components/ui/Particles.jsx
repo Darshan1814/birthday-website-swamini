@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { Heart, Sparkles, Star } from 'lucide-react';
 
 const icons = [Heart, Sparkles, Star];
-const colors = ['text-rose-gold', 'text-white', 'text-gold'];
+const colors = ['text-rose-gold', 'text-white', 'text-rose-300'];
 
 const Particles = ({ count = 20 }) => {
   const particles = Array.from({ length: count }).map((_, i) => {

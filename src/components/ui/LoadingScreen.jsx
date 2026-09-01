@@ -18,7 +18,7 @@ const LoadingScreen = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.5, duration: 1 }}
       >
-        Preparing a surprise...
+        Getting something ready for you...
       </motion.p>
     </div>
   );

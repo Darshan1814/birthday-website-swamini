@@ -14,7 +14,7 @@ const SurpriseLetter = () => {
         className="text-center mb-10"
       >
         <h2 className="font-serif text-3xl md:text-5xl font-bold text-gray-800 mb-4">
-          A Secret For You 💌
+          A Note For You 💌
         </h2>
         <div className="h-1 w-24 bg-purple-300 mx-auto rounded-full"></div>
       </motion.div>
@@ -40,7 +40,7 @@ const SurpriseLetter = () => {
                 
                 <Mail size={64} className="text-rose-gold mb-4 mt-8 z-10" />
                 <button className="bg-white/80 px-6 py-2 rounded-full font-medium text-gray-700 shadow-md z-10 hover:bg-white transition-colors">
-                  Open Secret Letter 💌
+                  Open the note 💌
                 </button>
               </motion.div>
             </motion.div>
@@ -55,9 +55,10 @@ const SurpriseLetter = () => {
               <div className="relative w-full h-full rounded-xl overflow-hidden shadow-2xl border-2 border-rose-100">
                 {/* Heavily blurred background image */}
                 <div className="absolute inset-0">
-                  <img 
-                    src="/images/WhatsApp%20Image%202026-05-18%20at%202.04.26%20AM.jpeg" 
-                    alt="Background"
+                  <img
+                    src="/images/swamini-main.jpeg"
+                    alt=""
+                    aria-hidden="true"
                     className="w-full h-full object-cover blur-md scale-110 opacity-70"
                   />
                   <div className="absolute inset-0 bg-white/60"></div>
@@ -68,7 +69,9 @@ const SurpriseLetter = () => {
                   <Heart className="absolute bottom-4 left-4 text-rose-400 animate-pulse" size={24} fill="#fda4af" />
                   
                   <p className="font-serif text-lg md:text-xl text-gray-900 leading-relaxed font-medium drop-shadow-sm">
-                    "Some friendships are special because they turn ordinary days into memories. Thank you for all the random conversations, laughs and moments. Stay happy always 🌸✨"
+                    Some people make life softer just by being in it. You are one
+                    of them, Swamini. Thank you for being exactly who you are.
+                    Stay happy, always. 🌸
                   </p>
                   <div className="mt-6 flex gap-2 justify-center w-full">
                      <div className="w-12 h-0.5 bg-rose-400"></div>

@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import Hero from './components/Hero';
+import HerHeart from './components/HerHeart';
 import MemoryGallery from './components/MemoryGallery';
 import MessageSection from './components/MessageSection';
-import FunnyMood from './components/FunnyMood';
+import OurMemories from './components/OurMemories';
 import Reasons from './components/Reasons';
-import FriendshipMemories from './components/FriendshipMemories';
-import GuessMemory from './components/GuessMemory';
+import LittleMoments from './components/LittleMoments';
 import SurpriseLetter from './components/SurpriseLetter';
 import FinalCelebration from './components/FinalCelebration';
+import MusicPlayer from './components/MusicPlayer';
 import LoadingScreen from './components/ui/LoadingScreen';
 import Particles from './components/ui/Particles';
 import IntroAnimation from './components/IntroAnimation';
@@ -20,17 +21,19 @@ function App() {
     const timer = setTimeout(() => {
       setLoading(false);
     }, 2500);
+
     return () => clearTimeout(timer);
   }, []);
 
   const handleIntroComplete = () => {
     setIntroDone(true);
-    // Play music on first interaction
+
+    // Browsers only allow audio to start from a user gesture, so kick it off here.
     const audio = document.getElementById('bg-music');
     if (audio) {
-      audio.play().catch(e => console.log("Audio play failed:", e));
-      // Dispatch a custom event to notify MusicPlayer
-      window.dispatchEvent(new Event('audio-started'));
+      audio.play().catch(() => {
+        /* Autoplay blocked; the floating music button lets her start it manually. */
+      });
     }
   };
 
@@ -40,7 +43,7 @@ function App() {
 
   return (
     <div className="relative min-h-screen w-full overflow-hidden">
-      {/* Global Background Particles */}
+      {/* Global background particles */}
       <div className="fixed inset-0 pointer-events-none z-0">
         <Particles count={30} />
       </div>
@@ -50,17 +53,20 @@ function App() {
       {!introDone ? (
         <IntroAnimation onComplete={handleIntroComplete} />
       ) : (
-        <main className="relative z-10">
-          <Hero />
-          <FunnyMood />
-          <MemoryGallery />
-          <MessageSection />
-          <FriendshipMemories />
-          <Reasons />
-          <GuessMemory />
-          <SurpriseLetter />
-          <FinalCelebration />
-        </main>
+        <>
+          <main className="relative z-10">
+            <Hero />
+            <HerHeart />
+            <MemoryGallery />
+            <MessageSection />
+            <OurMemories />
+            <Reasons />
+            <LittleMoments />
+            <SurpriseLetter />
+            <FinalCelebration />
+          </main>
+          <MusicPlayer />
+        </>
       )}
     </div>
   );
